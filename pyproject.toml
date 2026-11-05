@@ -1,0 +1,25 @@
+[project]
+name = "sssm"
+version = "0.1.0"
+description = "Semantic State Space Model experiments on small local LMs (after arXiv:2611.05306)"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+report = ["matplotlib"]
+train = ["torch", "transformers>=4.45", "peft>=0.12", "datasets", "accelerate"]
+dev = ["pytest", "ruff"]
+
+[tool.setuptools]
+packages = ["sssm", "sssm.train"]
+
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+ignore = ["E741"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
